@@ -36,7 +36,7 @@ const Home = (props) => {
         {props.posts.map((post) => {
           return (
             <li key={post.id}>
-              <Link href='/articles/[title]' as={`/articles/${post.id}`}>
+              <Link href='/posts/[id]' as={`/posts/${post.id}`}>
                 <p>{post.title}</p>
               </Link>
             </li>
@@ -47,7 +47,7 @@ const Home = (props) => {
   );
 };
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   let res = await fetch('https://jsonplaceholder.typicode.com/posts');
   let posts = await res.json();
 
