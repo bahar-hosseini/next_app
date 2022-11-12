@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-const Home = () => {
+const Home = (props) => {
   return (
     <>
       <h2>Hello Roocket</h2>
@@ -31,26 +31,31 @@ const Home = () => {
           </Link>
         </li>
       </ul>
-      <h2>Blog Articles</h2>
+      <h2>Blog Posts</h2>
       <ul>
-        <li>
-          <Link href='/articles/[title]/[id]' as='/articles/article-1/1'>
-            <p>Article 1</p>
-          </Link>
-        </li>
-        <li>
-          <Link href='/articles/[title]/[id]' as='/articles/article-2/2'>
-            <p>Article 2</p>
-          </Link>
-        </li>
-        <li>
-          <Link href='/articles/[title]/[id]' as='/articles/article-3/3'>
-            <p>Article 3</p>
-          </Link>
-        </li>
+        {props.posts.map((post) => {
+          return (
+            <li key={post.id}>
+              <Link href='/articles/[title]' as={`/articles/${post.id}`}>
+                <p>{post.title}</p>
+              </Link>
+            </li>
+          );
+        })}
       </ul>
     </>
   );
 };
+
+export async function getServerSideProps() {
+  let res = await fetch('https://jsonplaceholder.typicode.com/posts');
+  let posts = await res.json();
+
+  return {
+    props: {
+      posts,
+    },
+  };
+}
 
 export default Home;
