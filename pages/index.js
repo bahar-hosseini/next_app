@@ -21,6 +21,18 @@ const Home = () => {
           <Link href='/contact-us'> Contact-us</Link>
         </li>
       </ul>
+      <h2>Blog Articles</h2>
+      <ul>
+        <li>
+          <Link href='/articles?title=article-1&id=1'>Article 1</Link>
+        </li>
+        <li>
+          <Link href='/articles?title=article-2&id=2'>Article 2</Link>
+        </li>
+        <li>
+          <Link href='/articles?title=article-3&id=3'>Article 3</Link>
+        </li>
+      </ul>
     </>
   );
 };
