@@ -1,7 +1,13 @@
+//Components
+import Navbar from '../components/navbar';
 
 const ContactUs = () => {
-    return <h2>Contact Us Page</h2>
-}
-
+  return (
+    <div>
+      <h2>Contact Us Page</h2>
+      <Navbar />
+    </div>
+  );
+};
 
 export default ContactUs;
