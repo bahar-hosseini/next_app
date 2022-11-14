@@ -5,7 +5,13 @@ const navbar = () => {
   return (
     <div>
       {' '}
-      <ul>
+      <ul
+        style={{
+          display: 'flex',
+          justifyContent: 'space-evenly',
+          textDecoration: 'none',
+        }}
+      >
         <li>
           <Link href='/'>
             <p>Home</p>

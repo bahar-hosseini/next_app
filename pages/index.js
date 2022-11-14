@@ -9,8 +9,14 @@ const Home = (props) => {
     <>
       <h2>Hello Bahar</h2>
       <Navbar />
-      <h2>Blog Posts</h2>
-      <PostsList posts={props.posts} />
+      <div>
+        <h2>Blog Posts</h2>
+        <img
+          style={{ height: '50vh', width: '100vw' }}
+          src='/images/blog.jpg'
+        />
+        <PostsList posts={props.posts} />
+      </div>
     </>
   );
 };
