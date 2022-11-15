@@ -1,38 +1,34 @@
 import React from 'react';
 import Link from 'next/link';
 
+import styles from './navbar.module.css';
+
 const navbar = () => {
   return (
     <div>
       {' '}
-      <ul
-        style={{
-          display: 'flex',
-          justifyContent: 'space-evenly',
-          textDecoration: 'none',
-        }}
-      >
-        <li>
+      <ul className={styles.list}>
+        <li className={styles.itemList}>
           <Link href='/'>
             <p>Home</p>
           </Link>
         </li>
-        <li>
+        <li className={styles.itemList}>
           <Link href='/articles'>
             <p>Articles</p>
           </Link>
         </li>
-        <li>
+        <li className={styles.itemList}>
           <Link href='/courses'>
             <p>Courses</p>
           </Link>
         </li>
-        <li>
+        <li className={styles.itemList}>
           <Link href='/about'>
             <p>About</p>
           </Link>
         </li>
-        <li>
+        <li className={styles.itemList}>
           <Link href='/contact-us'>
             <p>Contact Us</p>
           </Link>
