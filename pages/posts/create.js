@@ -1,5 +1,8 @@
 import { useState } from 'react';
 
+//components
+import Navbar from '../../components/navbar';
+
 const CreatePost = () => {
   const [form, setForm] = useState({ title: '', body: '' });
   const changeHandler = (e) => {
@@ -17,6 +20,7 @@ const CreatePost = () => {
   };
   return (
     <>
+      <Navbar />
       <h1>Create Post</h1>
       <style jsx>
         {`

@@ -33,6 +33,11 @@ const navbar = () => {
             <p>Contact Us</p>
           </Link>
         </li>
+        <li className={styles.itemList}>
+          <Link href='/posts/create'>
+            <p>Create Post</p>
+          </Link>
+        </li>
       </ul>
     </div>
   );

@@ -1,7 +1,12 @@
+import Head from 'next/head';
+
 const SinglePost = (props) => {
   const { post } = props;
   return (
     <>
+      <Head>
+        <title>{post.title}</title>
+      </Head>
       <h2>{post.title}</h2>
       <p>{post.body}</p>
     </>

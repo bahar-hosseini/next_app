@@ -4,10 +4,14 @@ import Link from 'next/link';
 import PostsList from '../components/posts';
 import UsersList from '../components/users';
 import Navbar from '../components/navbar';
+import Head from 'next/head';
 
 const Home = (props) => {
   return (
     <>
+      <Head>
+        <title>Bahar's Blog</title>
+      </Head>
       <h2>Hello Bahar</h2>
       <Navbar />
       <div>
