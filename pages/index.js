@@ -2,6 +2,7 @@ import Link from 'next/link';
 
 //components
 import PostsList from '../components/posts';
+import UsersList from '../components/users';
 import Navbar from '../components/navbar';
 
 const Home = (props) => {
@@ -16,6 +17,7 @@ const Home = (props) => {
           src='/images/blog.jpg'
         />
         <PostsList posts={props.posts} />
+        <UsersList users={props.users} />
       </div>
     </>
   );
@@ -25,9 +27,12 @@ export async function getStaticProps() {
   let res = await fetch('https://jsonplaceholder.typicode.com/posts');
   let posts = await res.json();
 
+  res = await fetch('http://localhost:3000/api/users');
+  let users = await res.json();
   return {
     props: {
       posts,
+      users: users.data,
     },
   };
 }
