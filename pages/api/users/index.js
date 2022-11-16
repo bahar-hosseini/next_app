@@ -1,29 +1,20 @@
-import Cors from 'cors';
+import cors from 'cors';
+import nc from 'next-connect';
 
-const cors = Cors({
-  origin: 'http://localhost:3000',
-});
+const handler = nc();
 
-const runMiddleware = (req, res, fn) => {
-  return new Promise((resolve, reject) => {
-    fn(req, res, (result) => {
-      if (result instanceof Error) {
-        return reject(result);
-      }
-      return resolve(result);
-    });
-  });
-};
-
-const handler = async (req, res) => {
-  await runMiddleware(req, res, cors);
-
+handler.use(
+  cors({
+    origin: 'http://localhost:3000',
+  })
+);
+handler.get(async (req, res) => {
   let users = [
     { id: 1, name: 'Bahar' },
     { id: 2, name: 'John' },
   ];
 
   res.end(JSON.stringify({ data: users, status: 'success' }));
-};
+});
 
 export default handler;
