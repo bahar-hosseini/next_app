@@ -1,12 +1,20 @@
-
+.itemList{
+  list-style-type:none;
+}
 .itemList a{
+  display: flex;
+  flex-direction:column;
   text-decoration: none;
   color: #000;
+  padding: 0px 10px;
 }
 .itemList:visited { text-decoration: none; }
 .title{
-  border: 2px solid;
+  border: 2px solid #4F4F4D;
   border-radius: 7px;
-  padding: 20px;
-  
+  padding: 20px 10px;
+
+}
+.title:hover{
+box-shadow: 5px 10px;
 }
