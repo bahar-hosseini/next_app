@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Error from 'next/error';
 
 //components
 import PostsList from '../components/posts';
@@ -7,6 +8,10 @@ import Navbar from '../components/navbar';
 import Head from 'next/head';
 
 const Home = (props) => {
+  if (props.errorCode) {
+    return <Error statusCode={props.errorCode} title='There is an error' />;
+  }
+
   return (
     <>
       <Head>
@@ -29,12 +34,14 @@ const Home = (props) => {
 
 export async function getStaticProps() {
   let res = await fetch('https://jsonplaceholder.typicode.com/posts');
+  let errorCode = res.ok ? false : res.status;
   let posts = await res.json();
 
   res = await fetch('http://localhost:3000/api/users');
   let users = await res.json();
   return {
     props: {
+      errorCode,
       posts,
       users: users.data,
     },
